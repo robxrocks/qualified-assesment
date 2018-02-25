@@ -1,6 +1,5 @@
 package com.robxrocks.test.qualified.assesment;
 
-import com.robxrocks.test.qualified.asesment.CreditCard;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 

@@ -1,4 +1,4 @@
-package com.robxrocks.test.qualified.asesment;
+package com.robxrocks.test.qualified.assesment;
 
 public class Challenge {
 
