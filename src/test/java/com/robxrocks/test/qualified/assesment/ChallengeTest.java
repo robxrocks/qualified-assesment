@@ -11,9 +11,6 @@ public class ChallengeTest {
         assertEquals("2nd", Challenge.numberToOrdinal(2));
         assertEquals("3rd", Challenge.numberToOrdinal(3));
         assertEquals("4th", Challenge.numberToOrdinal(4));
-
-        assertEquals("33rd", Challenge.numberToOrdinal(33));
-        assertEquals("92nd", Challenge.numberToOrdinal(92));
     }
 
     @Test

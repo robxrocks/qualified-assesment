@@ -15,7 +15,8 @@ public class Challenge {
 
         if (number == 0) {
             ordinal = "";
-        } else if (convertedNumber.length >= TWO_DIGITS && convertedNumber[convertedNumber.length - TWO_DIGITS] == '1') {
+        } else if (convertedNumber.length >= TWO_DIGITS
+                   && convertedNumber[convertedNumber.length - TWO_DIGITS] == '1') {
             ordinal = TH;
         } else {
             switch (lastDigit) {

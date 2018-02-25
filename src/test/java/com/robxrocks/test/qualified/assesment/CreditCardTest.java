@@ -11,13 +11,18 @@ public class CreditCardTest {
     }
 
     @Test
-    public void shouldNotMaskDigitsForShortCreditCards() {
-        assertEquals("54321", CreditCard.maskify("54321"));
+    public void shouldNotMaskHyphens() {
+        assertEquals("4###-####-####-5616", CreditCard.maskify("4556-3646-0793-5616"));
     }
 
     @Test
-    public void shouldNotMaskHyphens() {
-        assertEquals("4###-####-####-5616", CreditCard.maskify("4556-3646-0793-5616"));
+    public void shouldMaskOnlySecondDigit() {
+        assertEquals("1#3456", CreditCard.maskify("123456"));
+    }
+
+    @Test
+    public void shouldNotMaskDigitsForShortCreditCards() {
+        assertEquals("54321", CreditCard.maskify("54321"));
     }
 
     @Test
@@ -28,11 +33,6 @@ public class CreditCardTest {
     @Test
     public void shouldNotMaskNonEmptyStrings() {
         assertEquals("Skippy", CreditCard.maskify("Skippy"));
-    }
-
-    @Test
-    public void shouldMaskOnlySecondDigit() {
-        assertEquals("1#3456", CreditCard.maskify("123456"));
     }
 
 }
