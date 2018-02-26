@@ -1,7 +1,5 @@
 package com.robxrocks.test.qualified.assesment;
 
-import java.util.regex.Pattern;
-
 public class CreditCard {
 
     public static String maskify(String creditCardNumber) {
@@ -9,18 +7,20 @@ public class CreditCard {
         final int LAST_CHAR_FROM_END_TO_HASH = 4;
         final String HASH_CHAR = "#";
         String regex = "[0-9]";
-        char[] creditCardNumberArray = creditCardNumber.toCharArray();
 
+        String hashedPassword;
         if (creditCardNumber.length() > MIN_NUMBER_OF_CHARACTERS_TO_NOT_MASK) {
-            for(int i = 1; i < creditCardNumber.length() - LAST_CHAR_FROM_END_TO_HASH; i++) {
-                char charToHash = creditCardNumberArray[i];
-                if (Pattern.matches(regex, String.valueOf(charToHash))) {
-                    creditCardNumberArray[i] = HASH_CHAR.charAt(0);
-                }
-            }
+            String substringToHash = creditCardNumber.substring(1, creditCardNumber.length() - LAST_CHAR_FROM_END_TO_HASH);
+            String hashedSubstring = substringToHash.replaceAll(regex, HASH_CHAR);
+
+            hashedPassword = creditCardNumber.substring(0,1)
+                    + hashedSubstring
+                    + creditCardNumber.substring(creditCardNumber.length() - LAST_CHAR_FROM_END_TO_HASH, creditCardNumber.length());
+        } else {
+            hashedPassword = creditCardNumber;
         }
 
-        return String.valueOf(creditCardNumberArray);
+        return hashedPassword;
     }
 
 }
