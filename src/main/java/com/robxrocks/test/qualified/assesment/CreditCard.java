@@ -10,12 +10,14 @@ public class CreditCard {
 
         String hashedPassword;
         if (creditCardNumber.length() > MIN_NUMBER_OF_CHARACTERS_TO_NOT_MASK) {
-            String substringToHash = creditCardNumber.substring(1, creditCardNumber.length() - LAST_CHAR_FROM_END_TO_HASH);
+            String substringToHash = creditCardNumber.substring(1,
+                    creditCardNumber.length() - LAST_CHAR_FROM_END_TO_HASH);
             String hashedSubstring = substringToHash.replaceAll(regex, HASH_CHAR);
 
             hashedPassword = creditCardNumber.substring(0,1)
                     + hashedSubstring
-                    + creditCardNumber.substring(creditCardNumber.length() - LAST_CHAR_FROM_END_TO_HASH, creditCardNumber.length());
+                    + creditCardNumber.substring(creditCardNumber.length() - LAST_CHAR_FROM_END_TO_HASH,
+                    creditCardNumber.length());
         } else {
             hashedPassword = creditCardNumber;
         }
