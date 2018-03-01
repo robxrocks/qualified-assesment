@@ -15,14 +15,13 @@ public class Calc {
 
         List<String> expressionList = Arrays.asList(expr.split(" "));
         Stack valuesStack = new Stack();
-        for (int i = 0; i < expressionList.size(); i++) {
-            String expressionListItem = expressionList.get(i);
+        expressionList.forEach(expressionListItem -> {
             if(Pattern.matches(regexForValues, expressionListItem)) {
                 valuesStack.push(Double.valueOf(expressionListItem));
             } else if(Pattern.matches(regexForOperators, expressionListItem)) {
                 valuesStack.push(calculate(valuesStack, expressionListItem));
             }
-        }
+        });
 
         return (Double) valuesStack.pop();
     }
