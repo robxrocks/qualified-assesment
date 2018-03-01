@@ -60,7 +60,7 @@ public class CalcTest {
     }
 
     @Test
-    public void shouldSupportComplexExpression() {
+    public void shouldSupportComplexExpressions() {
         assertEquals(6, calc.evaluate("7 4 5 + * 3 - 10 /"), 0);
     }
 
